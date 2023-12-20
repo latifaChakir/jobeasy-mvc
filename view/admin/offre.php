@@ -137,9 +137,9 @@
                             <td class="f_position"><?php echo $offre['candidature_status']; ?></td>
                             
                             <td class="flex-container">
-                            <a href="?route=approvedoffre&id=<?php echo $offre['job_id']; ?>&id_user=<?php echo $offre['id']; ?>"><img class="accept_task w-50" src="/assets/img/journal-check.svg" alt="icon" ></a>
+                            <a href="?route=approvedoffre&id=<?php echo $offre['job_id']; ?>&id_user=<?php echo $offre['id']; ?>&email_user=<?php echo $offre['email']; ?>"><img class="accept_task w-50" src="/assets/img/journal-check.svg" alt="icon" ></a>
 
-                                <a href="?route=rejectedoffre&id=<?php echo $offre['job_id']; ?>&id_user=<?php echo $offre['id']; ?>"><img class="delet_user w-50" src="/assets/img/journal-x.svg" alt="icon"></a>
+                                <a href="?route=rejectedoffre&id=<?php echo $offre['job_id']; ?>&id_user=<?php echo $offre['id']; ?>&email_user=<?php echo $offre['email']; ?>"><img class="delet_user w-50" src="/assets/img/journal-x.svg" alt="icon"></a>
                             </td>
                         </tr>
                         <?php 

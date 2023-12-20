@@ -14,12 +14,13 @@ class ApprovedController {
     }
 
     public function approvedStatus() {
-        if (isset($_GET['id']) && isset($_GET['id_user'])) {
+        if (isset($_GET['id']) && isset($_GET['id_user']) && isset($_GET['email_user'])) {
             $id = $_GET['id'];
             $user_id = $_GET['id_user'];
+            $senderEmail = $_GET['email_user'];
          
             $candidature = new CandidatureModel($this->conn);
-            $candidature->updateStatus($id, $user_id, 'Approved');
+            $candidature->updateStatus($id, $user_id, 'Approved',$senderEmail);
         }
     }
 }
