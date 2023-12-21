@@ -71,7 +71,7 @@ namespace App\Models;
     }
     public function sauvegarder()
     {
-        $uploadDir = __DIR__ . "/assets/img/";
+        $uploadDir = __DIR__ . "/../../public/assets/img/";
 
         if (is_uploaded_file($_FILES['image_path']['tmp_name'])) {
 

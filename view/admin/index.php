@@ -34,7 +34,7 @@
                                 alt="icon">Overview</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="../candidat.php" class="sidebar_link"> <img src="/assets/img/agents.svg"
+                        <a href="?route=candidat" class="sidebar_link"> <img src="/assets/img/agents.svg"
                                 alt="icon">Candidat</a>
                     </li>
                     <li class="sidebar_item">
@@ -42,7 +42,7 @@
                                 alt="icon">Offre</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="../contact.php" class="sidebar_link"><img src="/assets/img/agent.svg"
+                        <a href="?route=contact" class="sidebar_link"><img src="/assets/img/agent.svg"
                                 alt="icon">Contact</a>
                     </li>
                     <li class="sidebar_item">

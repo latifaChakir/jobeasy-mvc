@@ -11,6 +11,8 @@
         }
     ],
     "require": {
-        "phpmailer/phpmailer": "^6.9"
+        "phpmailer/phpmailer": "^6.9",
+        "symfony/translation": "^5.0"
+        
     }
 }

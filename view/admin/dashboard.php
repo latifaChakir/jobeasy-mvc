@@ -23,14 +23,13 @@
                     <a href="dashboard.php" class="nav-link text-white-50">Dashboard</a>
                     <img class="close align-self-start" src="img/close.svg" alt="icon">
                 </div>
-
                 <ul class="sidebar_nav">
                     <li class="sidebar_item active" style="width: 100%;">
                         <a href="?route=statistique" class="sidebar_link"> <img src="/assets/img/1. overview.svg"
                                 alt="icon">Overview</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="../candidat.php" class="sidebar_link"> <img src="/assets/img/agents.svg"
+                        <a href="?route=candidat" class="sidebar_link"> <img src="/assets/img/agents.svg"
                                 alt="icon">Candidat</a>
                     </li>
                     <li class="sidebar_item">

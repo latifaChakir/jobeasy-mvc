@@ -1,15 +1,3 @@
-<?php
-use App\Models\UserModel;
-include_once('../../../database/connection.php');
-require_once('../../../models/user.php');
-
-session_start();
-
-if ($_SESSION['role'] !== 'admin') {
-    header("Location:../../../public/index.php "); 
-    exit();
-}?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,24 +24,28 @@ if ($_SESSION['role'] !== 'admin') {
 
                 <ul class="sidebar_nav">
                     <li class="sidebar_item active" style="width: 100%;">
-                        <a href="dashboard.php" class="sidebar_link"> <img src="img/1. overview.svg" alt="icon">Overview</a>
+                        <a href="?route=statistique" class="sidebar_link"> <img src="/assets/img/1. overview.svg"
+                                alt="icon">Overview</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="candidat.php" class="sidebar_link"> <img src="img/agents.svg" alt="icon">Candidat</a>
+                        <a href="?route=candidat" class="sidebar_link"> <img src="/assets/img/agents.svg"
+                                alt="icon">Candidat</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="offre.php" class="sidebar_link"> <img src="img/task.svg" alt="icon">Offre</a>
+                        <a href="?route=offre" class="sidebar_link"> <img src="/assets/img/task.svg"
+                                alt="icon">Offre</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="contact.php" class="sidebar_link"><img src="img/agent.svg" alt="icon">Contact</a>
+                        <a href="../contact.php" class="sidebar_link"><img src="/assets/img/agent.svg"
+                                alt="icon">Contact</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="offre/index.php" class="sidebar_link"><img src="img/articles.svg" alt="icon">Articles</a>
+                        <a href="?route=dashboard" class="sidebar_link"><img src="/assets/img/articles.svg" alt="icon">Articles</a>
                     </li>
 
                 </ul>
                 <div class="line"></div>
-                <a href="#" class="sidebar_link"><img src="img/settings.svg" alt="">Settings</a>
+                <a href="#" class="sidebar_link"><img src="/assets/img/settings.svg" alt="">Settings</a>
 
 
             </div>
@@ -66,16 +58,16 @@ if ($_SESSION['role'] !== 'admin') {
                 <div class="navbar  gap-4">
                     <div class="">
                         <input type="search" class="search " placeholder="Search">
-                        <img class="search_icon" src="img/search.svg" alt="iconicon">
+                        <img class="search_icon" src="/assets/img/search.svg" alt="iconicon">
                     </div>
                     <!-- <img src="img/search.svg" alt="icon"> -->
-                    <img class="notification" src="img/new.svg" alt="icon">
+                    <img class="notification" src="/assets/img/new.svg" alt="icon">
                     <div class="card new w-auto">
                         <div class="list-group list-group-light">
                             <div class="list-group-item px-3 d-flex justify-content-between align-items-center ">
-                                <p class="mt-auto">Notification</p><a href="#"><img src="img/settingsno.svg" alt="icon"></a>
+                                <p class="mt-auto">Notification</p><a href="#"><img src="/assets/img/settingsno.svg" alt="icon"></a>
                             </div>
-                            <div class="list-group-item px-3 d-flex"><img src="img/notif.svg" alt="iconimage">
+                            <div class="list-group-item px-3 d-flex"><img src="/assets/img/notif.svg" alt="iconimage">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text mb-3">Some quick example text to build on the card title and make up
@@ -83,7 +75,7 @@ if ($_SESSION['role'] !== 'admin') {
                                     <small class="card-text">1  day ago</small>
                                 </div>
                             </div>
-                            <div class="list-group-item px-3 d-flex"><img src="img/notif.svg" alt="iconimage">
+                            <div class="list-group-item px-3 d-flex"><img src="/assets/img/notif.svg" alt="iconimage">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text mb-3">Some quick example text to build on the card title and make up
@@ -99,7 +91,7 @@ if ($_SESSION['role'] !== 'admin') {
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-icon pe-md-0 position-relative" data-bs-toggle="dropdown">
-                                <img src="img/photo_admin.svg" alt="icon">
+                                <img src="/assets/img/photo_admin.svg" alt="icon">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end position-absolute">
                                 <a class="dropdown-item" href="#">Profile</a>
@@ -122,10 +114,7 @@ if ($_SESSION['role'] !== 'admin') {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                        $userQuery = new UserModel($conn); 
-                        $allUsers = $userQuery->getAllUsers();
-                        
+                        <?php   
                         foreach ($allUsers as $user) {
                             ?>
                          

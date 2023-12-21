@@ -17,6 +17,8 @@ use App\Controllers\RejectedStatusController;
 use App\Controllers\OffreController;
 use App\Controllers\SearchController;
 use App\Controllers\StatistiqueController;
+use App\Controllers\CondidatController;
+use App\Controllers\ContactController;
 use App\Models\Database; 
 
 
@@ -94,6 +96,16 @@ switch ($route) {
     case 'statistique':
         $StatistiqueController = new StatistiqueController($conn);
         $StatistiqueController->index();
+    break;
+
+    case 'candidat':
+        $CondidatController = new CondidatController($conn);
+        $CondidatController->index();
+    break;
+
+    case 'contact':
+        $ContactController = new ContactController($conn);
+        $ContactController->index();
     break;
     default:
         header('HTTP/1.0 404 Not Found');
