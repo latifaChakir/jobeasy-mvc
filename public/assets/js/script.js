@@ -1,8 +1,8 @@
 
 
 document.getElementById('loadMore').addEventListener('click', function () {
-  
-     // AJAX request to fetch more users
+
+    // AJAX request to fetch more users
 
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -21,7 +21,7 @@ document.getElementById('loadMore').addEventListener('click', function () {
     };
 
     // Make the AJAX request to the fetchMoreUsers endpoint
-    
+
     xhr.open('GET', 'index.php?route=fetchMoreUsers', true);
     xhr.send();
 });
@@ -58,17 +58,18 @@ function filterjob() {
 
 
 
-  (function () {
+(function () {
     $.ajax({
-      method: "GET",
-      url: "index.php?route=search",
-      data: {},
-      success: function (response) {
-       console.log("the response is :", response);
-      
-      },
-      error: function () {
-        alert("it doesn't work");
-      },
+        method: "GET",
+        url: "index.php?route=search",
+        data: {},
+        success: function (response) {
+            console.log("the response is :", response);
+
+        },
+        error: function () {
+            alert("it doesn't work");
+        },
     });
-  })();
+})();
+

@@ -1,6 +1,16 @@
-<?php session_start();?>
+<?php
+session_start();
+
+$currentLang = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+$langFilePath = __DIR__ . '/../lang/' . $currentLang . '.php';
+
+if (file_exists($langFilePath)) {
+    include $langFilePath;
+} 
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang=<?php echo $currentLang ?>>
 
 <head>
     <meta charset="UTF-8">
@@ -8,9 +18,6 @@
     <title>
         JobEase
     </title>
-
-
-
 
     <link rel="stylesheet" href="/assets/styles/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -58,19 +65,22 @@
                                 <a class="nav-link" href="?route=notification">Notifications</a>
 
                             </li>
-                        <?php
+                            <?php
                         }
                         ?>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                language
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">FR</a>
-                                <a class="dropdown-item" href="#">EN</a>
+                        <li class="nav-link ">
+                            <div class="dropdown">
+                                <a class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Language
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="?lang=fr">FR</a>
+                                    <a class="dropdown-item" href="?lang=en">EN</a>
+                                </div>
                             </div>
                         </li>
+
                         <span class="nav-item active">
                             <a class="nav-link" href="#">EN</a>
                         </span>
@@ -94,7 +104,7 @@
 
 
     <section class="search">
-        <h2>Find Your Dream Job</h2>
+        <h2><?php echo $lang['title']; ?></h2>
         <form class="form-inline" method="post" onsubmit="event.preventDefault(); filterjob();">
             <div class="form-group mb-2">
                 <input type="text" id="title" placeholder="Keywords">
@@ -107,7 +117,12 @@
             <div class="form-group mx-sm-3 mb-2">
                 <input type="text" id="company" placeholder="Company">
             </div>
-            <a href="?route=search"><button type="submit" class="btn btn-primary mb-2">Search</button></a>
+            <a href="?route=search">
+                <button type="submit" class="btn btn-primary mb-2">
+                    <?php echo $lang['search']; ?>
+                </button>
+            </a>
+
 
         </form>
     </section>
@@ -116,7 +131,7 @@
 
         <!--------------------------  card  --------------------->
         <section class="light">
-            <h2 class="text-center py-3">Latest Job Listings</h2>
+            <h2 class="text-center py-3"><?php echo $lang['latest']; ?></h2>
             <div class="container py-2">
                 <?php foreach ($allOffres as $offre): ?>
 
@@ -172,8 +187,11 @@
     </footer>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
 <script src="/assets/js/script.js"></script>
 
 </html>
